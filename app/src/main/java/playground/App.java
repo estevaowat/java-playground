@@ -5,7 +5,14 @@ package playground;
 
 public class App {
 
+    /****
+     * In this little assignment you are given a string of space separated numbers, and have to return the
+     * highest and lowest number.
+     */
+
     public static void main(String[] args) {
-        
+        System.out.println("HELLO MAIN!!");
     }
+
+
 }

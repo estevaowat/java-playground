@@ -4,5 +4,5 @@
     <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" project-jdk-name="17 (2)" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="adopt-openjdk-11 (3)" project-jdk-type="JavaSDK" />
 </project>
