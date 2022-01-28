@@ -20,7 +20,7 @@ test {
     useJUnitPlatform()
 
     testlogger {
-        theme 'standard-parallel'
+        theme 'standard'
         showExceptions true
         showStackTraces true
         showCauses true

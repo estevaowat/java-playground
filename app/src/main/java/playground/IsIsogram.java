@@ -4,6 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class IsIsogram {
+
+    private IsIsogram() {
+        // This is an empty constructor to make sonar lint shut up
+    }
+
     public static boolean solution(String str) {
         String[] splitted = str.toLowerCase().split("");
         Map<String, Integer> letterCounter = new HashMap<>();
@@ -17,9 +22,7 @@ public class IsIsogram {
                 letterCounter.put(letter, counter);
             }
         }
-
-        return !(letterCounter.values().stream().anyMatch(c -> c.intValue() > 1));
-
-
+        boolean hasRepeatedLetters = letterCounter.values().stream().anyMatch(c -> c > 1);
+        return !hasRepeatedLetters;
     }
 }
