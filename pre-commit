@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# run the tests with the gradle wrapper
+./gradlew clean build
+./gradle test
+

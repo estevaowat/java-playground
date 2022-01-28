@@ -3,8 +3,6 @@ plugins {
     id "com.adarshr.test-logger" version "3.1.0"
 }
 
-apply from: rootProject.file('gradle/install-git-hooks.gradle')
-
 repositories {
     mavenCentral()
 }
@@ -38,4 +36,12 @@ test {
         logLevel 'lifecycle'
     }
 }
+
+task installLocalGitHook(type: Copy) {
+    from new File(rootProject.rootDir, 'pre-commit')
+    into { new File(rootProject.rootDir, '.git/hooks') }
+    fileMode 0775
+}
+build.dependsOn installLocalGitHook
+
 
