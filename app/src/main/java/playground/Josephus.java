@@ -21,16 +21,4 @@ public class Josephus {
 
         return permutations;
     }
-
-
-    static int josephus(int n, int k) {
-        if(n == 1)
-            return 0;
-        else {
-            int res = ((josephus(n - 1, k) + k) % n);
-            System.out.println(res);
-
-            return res;
-        }
-    }
 }
