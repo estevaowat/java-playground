@@ -9,7 +9,7 @@ public class Josephus {
         // This is an empty constructor to make sonar lint shut up
     }
 
-    public static <T> List<T> josephusPermutation(List<T> items, int k) {
+    public static <T> List<T> solution(List<T> items, int k) {
         LinkedList<T> newList = new LinkedList<>(items);
         LinkedList<T> permutations = new LinkedList<>();
         int position = 0;

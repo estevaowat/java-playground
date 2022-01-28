@@ -32,7 +32,7 @@ class JosephusTest {
     @DisplayName("should return the joseph permutations given the list of soldiers and counter")
     @MethodSource("testCases")
     void name(List<Object> items, int quantity, List<Object> expected) {
-        var result = Josephus.josephusPermutation(items, quantity);
+        var result = Josephus.solution(items, quantity);
         Assertions.assertEquals(expected, result);
     }
 }
