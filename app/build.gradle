@@ -36,7 +36,7 @@ test {
         logLevel 'lifecycle'
     }
 }
-
+print rootProject.rootDir
 task installLocalGitHook(type: Copy) {
     from new File(rootProject.rootDir, 'pre-commit')
     into { new File(rootProject.rootDir, '.git/hooks') }
