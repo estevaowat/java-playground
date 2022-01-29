@@ -16,7 +16,8 @@ public class Josephus {
 
         while(!(newList.isEmpty())) {
             position = (position + k - 1) % newList.size();
-            permutations.add(newList.remove(position));
+            T removedItem = newList.remove(position);
+            permutations.add(removedItem);
         }
 
         return permutations;
