@@ -23,6 +23,12 @@ public class IsIsogram {
             }
         }
         boolean hasRepeatedLetters = letterCounter.values().stream().anyMatch(c -> c > 1);
+
+        final var n = 14;
+        Double a = Math.log(n) / Math.log(5);
+        int value = a.intValue();
+
+
         return !hasRepeatedLetters;
     }
 }
