@@ -3,10 +3,41 @@
  */
 package playground;
 
-public class App {
-  
-    public static void main(String[] args) {
+import playground.sorts.BubbleSort;
+import playground.sorts.ISort;
+import playground.sorts.MergeSort;
+import playground.sorts.QuickSort;
 
+import java.time.Duration;
+import java.time.Instant;
+
+import static playground.sorts.RandomNumbers.createArrayWithRandomNumbers;
+
+public class App {
+
+    public static void main(String[] args) {
+        final int size = 5;
+        int[] numbers = createArrayWithRandomNumbers(size);
+
+        BubbleSort bubbleSort = new BubbleSort();
+        measureSortAlgorithm(bubbleSort, numbers);
+
+        QuickSort quickSort = new QuickSort();
+        //measureSortAlgorithm(quickSort, numbers);
+
+        MergeSort mergeSort = new MergeSort();
+        //measureSortAlgorithm(mergeSort, numbers);
+
+
+    }
+
+    private static void measureSortAlgorithm(ISort algorithm, int[] numbers) {
+        Instant startInstant = Instant.now();
+        algorithm.sort(numbers);
+        Instant endInstant = Instant.now();
+
+        System.out.println("TIME ELAPSED IN MILLISECONDS: " + Duration.between(startInstant, endInstant).toMillis());
+        System.out.println("TIME ELAPSED IN SECONDS: " + Duration.between(startInstant, endInstant).toSeconds());
     }
 
 
