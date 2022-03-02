@@ -5,18 +5,12 @@ public class BubbleSort implements ISort {
 
     @Override
     public int[] sort(int[] numbers) {
-        for(int number : numbers) {
-            System.out.println("number = " + number);
-        }
-
         for(int i = 0; i < numbers.length - 1; i++) {
             for(int j = 0; j < numbers.length - 1 - i; j++) {
-                System.out.println("i = " + i);
-                System.out.println("j = " + j);
-                if(numbers[j] > numbers[j + 1]) {
-                    int temp = numbers[j];
+                if(numbers[j] < numbers[j + 1]) {
+                    int tempNumber = numbers[j];
                     numbers[j] = numbers[j + 1];
-                    numbers[j + 1] = temp;
+                    numbers[j + 1] = tempNumber;
                 }
             }
         }

@@ -16,7 +16,7 @@ import static playground.sorts.RandomNumbers.createArrayWithRandomNumbers;
 public class App {
 
     public static void main(String[] args) {
-        final int size = 5;
+        final int size = 100000;
         int[] numbers = createArrayWithRandomNumbers(size);
 
         BubbleSort bubbleSort = new BubbleSort();
@@ -32,10 +32,20 @@ public class App {
     }
 
     private static void measureSortAlgorithm(ISort algorithm, int[] numbers) {
+        for(int number : numbers) {
+            System.out.print(number + " ");
+        }
+
+
         Instant startInstant = Instant.now();
-        algorithm.sort(numbers);
+        int[] sortedNumbers = algorithm.sort(numbers);
         Instant endInstant = Instant.now();
 
+        for(int number : sortedNumbers) {
+            System.out.print(number + " ");
+        }
+        System.out.println();
+        System.out.println("TIME ELAPSED IN NANOSECONDS: " + Duration.between(startInstant, endInstant).toNanos());
         System.out.println("TIME ELAPSED IN MILLISECONDS: " + Duration.between(startInstant, endInstant).toMillis());
         System.out.println("TIME ELAPSED IN SECONDS: " + Duration.between(startInstant, endInstant).toSeconds());
     }
