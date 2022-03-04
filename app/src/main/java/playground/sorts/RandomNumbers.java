@@ -18,6 +18,7 @@ public class RandomNumbers {
 
     public static int getRandomNumber(int size) {
         Random randomizer = new Random();
-        return randomizer.nextInt(size);
+        final int bound = 100000;
+        return randomizer.nextInt(bound);
     }
 }

@@ -3,52 +3,49 @@
  */
 package playground;
 
-import playground.sorts.BubbleSort;
-import playground.sorts.ISort;
-import playground.sorts.MergeSort;
-import playground.sorts.QuickSort;
+import playground.sorts.*;
 
 import java.time.Duration;
 import java.time.Instant;
 
-import static playground.sorts.RandomNumbers.createArrayWithRandomNumbers;
-
 public class App {
 
     public static void main(String[] args) {
-        final int size = 100000;
-        int[] numbers = createArrayWithRandomNumbers(size);
+        try {
+            final int size = 100000;
 
-        BubbleSort bubbleSort = new BubbleSort();
-        measureSortAlgorithm(bubbleSort, numbers);
+            int[] numbers = RandomNumbers.createArrayWithRandomNumbers(size);
+            int[] quickNumbers = numbers.clone();
+            int[] mergeNumbers = numbers.clone();
+            System.out.println("Measuring Bubble Sort");
+            BubbleSort bubbleSort = new BubbleSort();
+            measureSortAlgorithm(bubbleSort, numbers);
 
-        QuickSort quickSort = new QuickSort();
-        //measureSortAlgorithm(quickSort, numbers);
+            System.out.println("Measuring Quick sort");
+            QuickSort quickSort = new QuickSort();
+            measureSortAlgorithm(quickSort, quickNumbers);
 
-        MergeSort mergeSort = new MergeSort();
-        //measureSortAlgorithm(mergeSort, numbers);
+            System.out.println("Measuring Merge Sort");
+            MergeSort mergeSort = new MergeSort();
+            measureSortAlgorithm(mergeSort, mergeNumbers);
 
+        } catch(Exception ex) {
+            System.out.println(ex.getCause());
+            System.out.println(ex.getMessage());
+        }
 
     }
 
     private static void measureSortAlgorithm(ISort algorithm, int[] numbers) {
-        for(int number : numbers) {
-            System.out.print(number + " ");
-        }
-
-
         Instant startInstant = Instant.now();
+
         int[] sortedNumbers = algorithm.sort(numbers);
         Instant endInstant = Instant.now();
 
-        for(int number : sortedNumbers) {
-            System.out.print(number + " ");
-        }
         System.out.println();
         System.out.println("TIME ELAPSED IN NANOSECONDS: " + Duration.between(startInstant, endInstant).toNanos());
         System.out.println("TIME ELAPSED IN MILLISECONDS: " + Duration.between(startInstant, endInstant).toMillis());
         System.out.println("TIME ELAPSED IN SECONDS: " + Duration.between(startInstant, endInstant).toSeconds());
+        System.out.println();
     }
-
-
 }
