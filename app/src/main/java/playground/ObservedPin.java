@@ -8,28 +8,25 @@ import java.util.stream.Collectors;
 public class ObservedPin {
 
     public static List<String> getPINs(String observed) {
-        String[][] matrix = createMatrix();
         String[] characters = observed.split("");
+
         List<String> combinations = new ArrayList<>();
         combinations.add("");
-        
-        for(String character : characters) {
-            List<String> adjacents = getAdjacentsPin(character, matrix);
-            List<String> merged = merge(combinations, adjacents);
-            combinations = merged;
 
+        String[][] matrix = createMatrix();
+        for(String character : characters) {
+            combinations = merge(combinations, getAdjacentsPin(character, matrix));
         }
 
-
-        return combinations.stream().distinct().collect(Collectors.toList());
+        return combinations.stream()
+                .distinct()
+                .collect(Collectors.toList()); //create a mutable list
     }
 
-    public static List<String> merge(List<String> previousDigitsCombinations, List<String> currentDigitsCombinations) {
-
+    private static List<String> merge(List<String> previousDigitsCombinations, List<String> currentDigitsCombinations) {
         List<String> newCombinations = new ArrayList<>();
-        for(String current : currentDigitsCombinations) {
-            for(String prev : previousDigitsCombinations) {
-
+        for(String prev : previousDigitsCombinations) {
+            for(String current : currentDigitsCombinations) {
                 newCombinations.add(prev + current);
             }
         }
