@@ -1,14 +1,15 @@
-package playground;
+package playground.exercises;
 
 import java.util.HashMap;
 
 public class RomanNumerals {
 
-
     public static String toRoman(int n) {
-        
+
         int[] values = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
-        String[] romanLiterals = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+        String[] romanLiterals = {
+                "M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"
+        };
 
         StringBuilder roman = new StringBuilder();
 
@@ -31,12 +32,17 @@ public class RomanNumerals {
         int result = 0;
 
         HashMap<String, Integer> romanNumbersCatalog = getRomanNumbersCatalog();
+
         for(int i = 0; i < romanNumeralSplit.length; i++) {
             String currentLetter = romanNumeralSplit[i];
 
-            if(i > 0 && romanNumbersCatalog.get(currentLetter) > romanNumbersCatalog.get(romanNumeralSplit[i - 1])) {
+            if(i > 0
+                    && romanNumbersCatalog.get(currentLetter)
+                    > romanNumbersCatalog.get(romanNumeralSplit[i - 1])) {
 
-                result += romanNumbersCatalog.get(currentLetter) - 2 * romanNumbersCatalog.get(romanNumeralSplit[i - 1]);
+                result +=
+                        romanNumbersCatalog.get(currentLetter)
+                                - 2 * romanNumbersCatalog.get(romanNumeralSplit[i - 1]);
             } else {
 
                 result += romanNumbersCatalog.get(currentLetter);
@@ -44,7 +50,6 @@ public class RomanNumerals {
         }
 
         return result;
-
     }
 
     public static HashMap<String, Integer> getRomanNumbersCatalog() {
@@ -58,7 +63,5 @@ public class RomanNumerals {
         romanNumbersCatalog.put("M", 1000);
 
         return romanNumbersCatalog;
-
     }
-
 }

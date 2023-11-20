@@ -3,6 +3,7 @@ package playground;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import playground.exercises.LikersFacebook;
 
 class LikersFacebookTest {
 

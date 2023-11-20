@@ -1,4 +1,4 @@
-package playground;
+package playground.exercises;
 
 /*
 *
@@ -33,45 +33,45 @@ A unit of time must be used "as much as possible". It means that the function sh
 * */
 public class TimeFormatter {
 
-    public static String formatDuration(int seconds) {
-        String duration = "";
-        int minutes = (seconds / 60) % 60;
-        int hours = seconds / 3600;
-        int remainningSeconds = seconds % 60;
+  public static String formatDuration(int seconds) {
+    String duration = "";
+    int minutes = (seconds / 60) % 60;
+    int hours = seconds / 3600;
+    int remainningSeconds = seconds % 60;
 
-        System.out.println("seconds = " + seconds);
-        System.out.println("minutes = " + minutes);
-        System.out.println("hours = " + hours);
-        System.out.println("remainningSeconds = " + remainningSeconds);
+    System.out.println("seconds = " + seconds);
+    System.out.println("minutes = " + minutes);
+    System.out.println("hours = " + hours);
+    System.out.println("remainningSeconds = " + remainningSeconds);
 
-        if(hours > 0) {
-            duration += format(hours, "hour");
-        }
-
-        if(minutes > 0) {
-            if(hours > 0) {
-                duration = duration + ", ";
-            }
-            duration += format(minutes, "minute");
-        }
-
-        if(remainningSeconds > 0) {
-            if(minutes > 0) {
-                duration = duration + " and ";
-            }
-            duration += format(remainningSeconds, "second");
-        }
-
-        return duration;
+    if (hours > 0) {
+      duration += format(hours, "hour");
     }
 
-    private static String format(int value, String name) {
-        String singular = value + " " + name;
-
-        if(value > 1) {
-            return singular + "s";
-        }
-
-        return singular;
+    if (minutes > 0) {
+      if (hours > 0) {
+        duration = duration + ", ";
+      }
+      duration += format(minutes, "minute");
     }
+
+    if (remainningSeconds > 0) {
+      if (minutes > 0) {
+        duration = duration + " and ";
+      }
+      duration += format(remainningSeconds, "second");
+    }
+
+    return duration;
+  }
+
+  private static String format(int value, String name) {
+    String singular = value + " " + name;
+
+    if (value > 1) {
+      return singular + "s";
+    }
+
+    return singular;
+  }
 }

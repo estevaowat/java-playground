@@ -1,26 +1,28 @@
-package playground;
+package playground.exercises;
 
 public class SpinWords {
 
     public String spinWords(String sentence) {
-        var words = sentence.split(" ");
-        var newSentence = new String[words.length];
+        String[] words = sentence.split(" ");
+        String[] newSentence = new String[words.length];
+
         for(int i = 0; i < words.length; i++) {
-            var word = words[i];
+            String word = words[i];
+
             if(word.length() >= 5) {
-                var letters = word.split("");
-                var newLetters = new String[letters.length];
+                String[] letters = word.split("");
+                String[] newLetters = new String[letters.length];
 
                 for(int j = 0; j < letters.length; j++) {
                     newLetters[j] = letters[(letters.length - j) - 1];
                 }
 
-                var newWord = String.join("", newLetters);
-                word = newWord;
+                word = String.join("", newLetters);
             }
+
             newSentence[i] = word;
         }
+
         return String.join(" ", newSentence);
     }
-
 }

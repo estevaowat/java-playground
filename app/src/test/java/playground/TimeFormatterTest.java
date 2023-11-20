@@ -1,6 +1,7 @@
 package playground;
 
 import org.junit.jupiter.api.Test;
+import playground.exercises.TimeFormatter;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

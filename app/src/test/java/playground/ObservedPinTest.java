@@ -3,6 +3,7 @@ package playground;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import playground.exercises.ObservedPin;
 
 import java.util.Arrays;
 import java.util.Comparator;
